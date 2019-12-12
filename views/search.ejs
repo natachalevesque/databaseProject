@@ -7,9 +7,10 @@
 
 <body>
 
-    <% if( results )
-        for (var result of results ) { %>
-           <a href="/result?name=<%= result.name %> "> <%= result.name %> </a>
+    <%
+        for (var result of results ) {
+    %>
+        <br/><a href="/result?name=<%= result.name %>&type=<%= table %>"> <%= result.name %> </a><br/>
     <% } %>
 
 </body>

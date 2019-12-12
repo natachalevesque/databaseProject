@@ -4,3 +4,15 @@ body {
     background-image: url("../images/universe.jpg");
 
 }
+
+form {
+
+    color: white;
+
+}
+
+h1, h5, hr {
+    
+    color: white;
+
+}

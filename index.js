@@ -34,7 +34,6 @@ app.get('/search', async(request, response) => {
 
     const client = await database();
     const table = request.query.celestBody;
-    const name = request.query.name;
     const result = await client.query(
 
         knex.select().from( table )
@@ -42,13 +41,25 @@ app.get('/search', async(request, response) => {
 
     );
 
-    response.render('search', {results: result.rows});
+    response.render('search', {results: result.rows, table});
 
 });
 
-app.get('/result', (request, response) => {
+app.get('/result', async(request, response) => {
 
-    response.json({ ok: request.query.name})
+    const client = await database();
+    const name = request.query.name;
+    const type = request.query.type;
+    const result = await client.query(
+
+        knex.select().from( type )
+            .where('name', name )
+            .toString()
+
+    );
+
+    response.render('star', { result: result.rows[0] });
+
 });
 
 app.listen(port, () => {
