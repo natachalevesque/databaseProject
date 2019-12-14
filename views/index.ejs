@@ -1,24 +1,70 @@
-<!DOCTYPE HTML>
-<html>
-	<%- include('head') %>
-	<body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-		<form action="/search">
-		  Celestial Body type: <br/>
-		  <select name="celestBody">
-			  <option selected name="star" value="star">Star</option>
-			  <option selected name="planet"value="planet">Planet</option>
-			  <option selected name="comet" value="comet">Comet</option>
-			  <option selected name="asteroid" value="asteroid">Asteroid</option>
-			  <option selected name="moon" value="moon">Moon</option>
-			  <br/><br/>
-		  </select>
-		  <br/>
-			name: <br/>
-		  <input type="text" name="name">
-			<br/><br/>
-			<input type="submit" value="Submit">
-		</form>
+<%/* Head is redundant so we put it in head.ejs */%>
+<%- include('head') %>
 
-	</body>
+<body>
+<div class="p-5"
+	 style="background:transparent url('https://upload.wikimedia.org/wikipedia/commons/f/f6/Antennae_galaxies_xl.jpg')
+      no-repeat center center /cover">
+	<header>
+		<nav class="navbar navbar-light bg-transparent">
+			<div class="">
+				<a class="navbar-brand text-light font-weight-bold" href="index.html">Space Catalogue</a>
+			</div>
+			<form class="form-inline" action="/search" method="get">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search By Name" name="" value="" aria-label="Search">
+				<button class="btn btn-outline-danger my-2 my-sm-0" name="button" type="Submit">Search</button>
+			</form>
+		</nav>
+	</header>
+	<div class="p-5 mt-3 bg-transparent text-light text-center"
+		 style="min-height:100vh">
+		<div class="jumbotron bg-light" style="opacity: .7">
+			<h2 class="display-4 text-left text-dark font-weight-bold">Welcome to our Space catalogue!</h2>
+			<p class="text-left text-dark text-dark font-weight-bold">
+				Here you can find information on all sorts of space objects ranging from asteroids to stars!<br>
+				You only need to write in the top right corner a name of a space object or you can simply search by type</p>
+
+			<hr class="my-4">
+			<h4 class="text-dark text-center m-3">Advanced Search</h4>
+			<form class="form-inline" action="/search/" method="GET">
+				<label for="celestBodyType">Celestial Body type: </label>
+				<select class="mx-auto form-control w-25 m-2" name="celestBody" style="opacity: 1">
+					<option selected name="star" value="star">Star</option>
+					<option name="planet"value="planet">Planet</option>
+					<option name="moon" value="moon">Moon</option>
+					<option name="asteroid"value="asteroid">Asteroid</option>
+					<option name="comet" value="comet">Comet</option>
+					<option name="belt" value="belt">Belt</option>
+					<option name="celestialbody" value="celestialbody">Any</option>
+				</select>
+
+				<div for="star">
+					<label>Spectral type</label>
+					<select class="mx-auto form-control w-25 m-2" name="star" style="opacity: 1">
+						<option selected name="a" value="a">A</option>
+						<option name="b" value="b">B</option>
+						<option name="f" value="f">F</option>
+						<option name="g" value="g">G</option>
+						<option name="k" value="k">K</option>
+						<option name="m" value="m">M</option>
+						<option name="o" value="o">O</option>
+					</select>
+					<label>Orbits a star: </label>
+					<input type="checkbox" name="orbitsStar" value="orbitsStar">
+				</div>
+				<button class="btn btn-outline-danger my-2 my-sm-0" name="button" type="Submit" value="submit">Search</button>
+			</form>
+			<hr class="my-4">
+			<p class="text-left text-dark">This project was made by Natacha Levesque and Lee Carrier-Coupal for CS457 Database Software Design<br>
+				We built the front end, the back end and the database all from the ground up as it serves as a great learning experience</p>
+			<a href="https://github.com/natachalevesque/databaseProject/tree/master/views?fbclid=IwAR0q5kuGNpfhI63GkZe_QVV3UU9V4VFTX-ls3sicwROBCt1WQQSyjEfPOlQ">
+				<button type="button" class="btn btn-outline-danger float-left">GitHub Repository</button>
+			</a>
+		</div>
+	</div>
+</div>
+</body>
 </html>
