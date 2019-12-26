@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<%- include('head') %>
+
+<body>
+<div class="p-5"
+     style="background:transparent url('https://upload.wikimedia.org/wikipedia/commons/f/f6/Antennae_galaxies_xl.jpg')
+	      no-repeat center center /cover">
+
+    <%- include('header') %>
+
+    <div class="p-5 mt-3 bg-transparent text-light text-center"
+         style="min-height:100vh">
+        <div class="jumbotron bg-light" style="opacity: .7">
+            <h3 class="text-dark text-left"><%= result.name %></h3>
+            <hr class="my-4 row">
+            <div class="row">
+                <!-- Left column will have the object picture -->
+                <div class="col">
+                    <div class="card" >
+                        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/800px-Uranus2.jpg"
+                             alt="Moon" style="opacity: 1">
+                    </div>
+                </div>
+                <!-- Right column will have the information table -->
+                <div class="col">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Attributes</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Mass</td>
+                            <td><%= result.mass %>  M⊕</td>
+                        </tr>
+                        <tr>
+                            <td>Radius</td>
+                            <td><%= result.radius %>  R⊕</td>
+                        </tr>
+                        <tr>
+                            <td>Eccentricity</td>
+                            <td><%= result.eccentricities %></td>
+                        </tr>
+                        <tr>
+                            <td>Number of rings</td>
+                            <td><%= result.rings %></td>
+                        </tr>
+                        <tr>
+                            <td>Atmospheric composition</td>
+                            <td><%= result.atmospheric_composition %></td>
+                        </tr>
+                        <tr>
+                            <td>Semi major Axe</td>
+                            <td><%= result.semi_major %> AU</td>
+                        </tr>
+                        <tr>
+                            <td>Orbital period</td>
+                            <td><%= result.orbital_period %> earth days</td>
+                        </tr>
+                        <tr>
+                            <td>Rotational period</td>
+                            <td><%= result.rotational_period %> earth days</td>
+                        </tr>
+                        <tr>
+                            <td>Host star</td>
+                            <td><%= result.host %></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr class="my-4 row">
+                    <%- include('constantsChart') %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

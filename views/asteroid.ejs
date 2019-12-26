@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<body>
+
+<%- include('head') %>
+
+<div class="p-5"
+     style="background:transparent url('https://upload.wikimedia.org/wikipedia/commons/f/f6/Antennae_galaxies_xl.jpg')
+	      no-repeat center center /cover">
+
+    <%- include('header') %>
+
+    <div class="p-5 mt-3 bg-transparent text-light text-center"
+         style="min-height:100vh">
+        <div class="jumbotron bg-light" style="opacity: .7">
+            <h3 class="text-dark text-left"><%= result.name %></h3>
+            <hr class="my-4 row">
+            <div class="row">
+                <!-- Left column will have the object picture -->
+                <div class="col">
+                    <div class="card" >
+                        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/%28253%29_mathilde.jpg" alt="ObjectName">
+                    </div>
+                </div>
+                <!-- Right column will have the information table -->
+                <div class="col">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Attributes</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Mass</td>
+                            <td><%= result.mass %>  M⊕</td>
+                        </tr>
+                        <tr>
+                            <td>Radius</td>
+                            <td><%= result.radius %>  R⊕</td>
+                        </tr>
+                        <tr>
+                            <td>Discoverer</td>
+                            <td><%= result.discoverer %></td>
+                        </tr>
+                        <tr>
+                            <td>Year discovered</td>
+                            <td><%= result.year_discovered %></td>
+                        </tr>
+                        <tr>
+                            <td>Average distance from the sun</td>
+                            <td><%= result.avg_dist_sun %> AU</td>
+                        </tr>
+                        <tr>
+                            <td>Belt: </td>
+                            <td><%= result.belt %></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr class="my-4 row">
+                    <%- include('constantsChart') %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
